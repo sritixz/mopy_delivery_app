@@ -13,6 +13,8 @@ class AppColors {
   static const Color successLight = Color(0xFFECFDF5);
   static const Color danger = Color(0xFFEF4444);
   static const Color dangerLight = Color(0xFFFEF2F2);
+  static const Color error = Color(0xFFEF4444);
+  static const Color errorLight = Color(0xFFFEF2F2);
   static const Color warning = Color(0xFFF59E0B);
   static const Color warningLight = Color(0xFFFFFBEB);
 
@@ -24,6 +26,7 @@ class AppColors {
   // Light Mode Colors
   static const Color bgAppLight = Color(0xFFF8FAFC);
   static const Color bgCardLight = Colors.white;
+  static const Color bgInputLight = Color(0xFFF1F5F9);
   static const Color textMainLight = Color(0xFF0F172A);
   static const Color textMutedLight = Color(0xFF64748B);
   static const Color borderLight = Color(0xFFE2E8F0);
@@ -31,6 +34,7 @@ class AppColors {
   // Dark Mode Colors
   static const Color bgAppDark = Color(0xFF090D16);
   static const Color bgCardDark = Color(0xFF131B2E);
+  static const Color bgInputDark = Color(0xFF1E293B);
   static const Color textMainDark = Color(0xFFF8FAFC);
   static const Color textMutedDark = Color(0xFF94A3B8);
   static const Color borderDark = Color(0xFF1E293B);
