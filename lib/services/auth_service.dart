@@ -39,6 +39,7 @@ class AuthService {
       'kycDocuments': {
         'idProofType': idProofType,
         'idProofUrl': idProofUrl,
+        // ignore: use_null_aware_elements
         if (photoUrl != null) 'photoUrl': photoUrl,
       },
     };
