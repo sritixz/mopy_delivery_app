@@ -5,6 +5,7 @@ import '../../theme/app_theme.dart';
 import '../../widgets/pickup_checklist_sheet.dart';
 import '../../widgets/reject_reason_modal.dart';
 import '../../widgets/task_card.dart';
+import '../delivery/active_delivery_screen.dart';
 
 class TaskQueueScreen extends StatefulWidget {
   const TaskQueueScreen({super.key});
@@ -253,10 +254,10 @@ class _TaskQueueScreenState extends State<TaskQueueScreen> with SingleTickerProv
               );
             },
             onDeliver: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Starting navigation to ${task.deliveryDeskInfo.shortLocation}'),
-                  backgroundColor: AppColors.primary,
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ActiveDeliveryScreen(task: task),
                 ),
               );
             },

@@ -8,6 +8,8 @@ import '../../widgets/duty_toggle_widget.dart';
 import '../../widgets/pickup_checklist_sheet.dart';
 import '../../widgets/reject_reason_modal.dart';
 import '../../widgets/task_card.dart';
+import '../delivery/active_delivery_screen.dart';
+import '../earnings/earnings_screen.dart';
 import '../profile/runner_profile_screen.dart';
 import '../tasks/task_queue_screen.dart';
 
@@ -53,7 +55,7 @@ class _RunnerDashboardScreenState extends State<RunnerDashboardScreen> {
         body = const TaskQueueScreen();
         break;
       case 2:
-        body = _buildEarningsPlaceholder(context);
+        body = const EarningsScreen();
         break;
       case 3:
         body = const RunnerProfileScreen();
@@ -318,7 +320,12 @@ class _RunnerDashboardScreenState extends State<RunnerDashboardScreen> {
                     );
                   },
                   onDeliver: () {
-                    setState(() => _currentTabIndex = 1);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ActiveDeliveryScreen(task: task),
+                      ),
+                    );
                   },
                 )),
 
@@ -407,38 +414,6 @@ class _RunnerDashboardScreenState extends State<RunnerDashboardScreen> {
             style: const TextStyle(fontSize: 10, color: AppColors.textMutedLight),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildEarningsPlaceholder(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: AppColors.secondaryLight,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(Icons.account_balance_wallet_rounded, size: 48, color: AppColors.secondary),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Earnings & Shift Payouts',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Track completed deliveries, batch incentives, and weekly bank settlements.',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12, color: AppColors.textMutedLight),
-            ),
-          ],
-        ),
       ),
     );
   }
